@@ -223,6 +223,19 @@ public class TresEnRaya {
                     break; // se rompe la condicion de las columnas
                 }
             }
+            
+            // Apartado para verificar las diagonales 
+            
+            // En esta condicion lo que hace es que verifica la diagonal \
+            if (Tabla[0][0].equals(Tabla[1][1]) && Tabla[1][1].equals(Tabla[2][2]) && !Tabla[0][0].equals("-")) {
+                Jg = true;
+            }
+            
+         // En esta condicion lo que hace es que verifica la diagonal /
+            
+            if (Tabla[0][2].equals(Tabla[1][1]) && Tabla[1][1].equals(Tabla[2][0]) && !Tabla[0][2].equals("-")) {
+                Jg = true;
+            }
 			
             
             // si la condicion es verdadera
