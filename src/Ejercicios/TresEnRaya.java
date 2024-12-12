@@ -96,7 +96,9 @@ public class TresEnRaya {
 		
 		System.out.println("");
 		
-		while(true) { // bucle verdadero para los turnos de cada jugador 
+		boolean reiniciar = true;
+		
+		while(reiniciar) { // bucle verdadero para los turnos de cada jugador 
 			
 			// En este bucle el recorrido for mostramos la tabla actual de tres en raya
 			
@@ -131,7 +133,7 @@ public class TresEnRaya {
 				
 				fila = teclado.nextInt() -1; // Esta variable es para la matriz para cuando el jugador introduza se de la m,atriz un 0, 1, 2.
 				
-				while(fila < 1 || fila > 3) {
+				while(fila < 0 || fila > 2) {
 					
 					System.out.println(" _______________________________________________________________");
 					System.out.println("|                                                               |");
@@ -151,7 +153,7 @@ public class TresEnRaya {
 				
 				columna = teclado.nextInt() -1; // Esta variable es para la matriz para cuando el jugador introduza se de la m,atriz un 0, 1, 2.
 				
-				while(columna < 1 || columna > 3) {
+				while(columna < 0 || columna > 2) {
 					
 					System.out.println(" _______________________________________________________________");
 					System.out.println("|                                                               |");
@@ -265,7 +267,43 @@ public class TresEnRaya {
                     
                 }
                 
-                break;
+                System.out.println(" ________________________________________________");
+    			System.out.println("|                                                |");
+                System.out.println("|     Quieres repetir la revancha ???   (s/n)    |");
+                System.out.println("|________________________________________________|");
+                
+                String revancha = teclado.next(); // introducce el usuario si quiere seguir la ronda
+                
+                if (!revancha.equalsIgnoreCase("s")) { 
+                	
+                	// en esta condicion ignora el caso que es la s por si pone la n i nos saldra el mensaje saliendo de los juegos i con los resultados de cada jugador
+                	
+                	System.out.println(" __________________________________________________________");
+        			System.out.println("                                                           ");
+                    System.out.println("                    Saliendo del Juego...                  ");
+                    System.out.println(" __________________________________________________________");
+                    System.out.println("                                                           ");
+                    System.out.println("                    Resultado Finales                      ");
+                    System.out.println(" __________________________________________________________");
+                    System.out.println("                                                           ");
+                    System.out.println("  " + Jugador1 + "  ha ganado estas rondas  "+ contJ1 +"   ");
+                    System.out.println(" __________________________________________________________");
+                    System.out.println("                                                           ");
+                    System.out.println("  " + Jugador2 + "  ha ganado estas rondas  "+ contJ2 +"   ");
+                    System.out.println(" __________________________________________________________");
+                    reiniciar = false; // esto es para salir del bucle
+                       
+                }
+                
+                else {
+                	
+                	// Para reiniciar el tablero si la respuesta es un si 
+                	Tabla = new String[][] {{"-", "-", "-"}, 
+                							{"-", "-", "-"}, 
+                							{"-", "-", "-"}};
+                	
+                }
+                
             }
 			
          // Apartado para verificar si ha habido empate entre los dos jugadores
@@ -296,11 +334,46 @@ public class TresEnRaya {
                 System.out.println("|    Empate    |");
                 System.out.println("|______________|");
                 
-                break;// se rompe la condicion
+               
+                System.out.println(" ________________________________________________");
+                System.out.println("|                                                |");
+                System.out.println("|     Quieres repetir la revancha ???   (s/n)    |");
+                System.out.println("|________________________________________________|");
+                
+                String revancha = teclado.next(); // introducce el usuario si quiere seguir la ronda
+                
+                if (!revancha.equalsIgnoreCase("s")) { 
+                	
+                	// en esta condicion ignora el caso que es la s por si pone la n i nos saldra el mensaje saliendo de los juegos i con los resultados de cada jugador
+                	
+                	System.out.println(" __________________________________________________________");
+                	System.out.println("                                                           ");
+                	System.out.println("                    Saliendo del Juego...                  ");
+                	System.out.println(" __________________________________________________________");
+                	System.out.println("                                                           ");
+                	System.out.println("                    Resultado Finales                      ");
+                	System.out.println(" __________________________________________________________");
+                	System.out.println("                                                           ");
+                	System.out.println("  " + Jugador1 + "  ha ganado estas rondas  "+ contJ1 +"   ");
+                	System.out.println(" __________________________________________________________");
+                	System.out.println("                                                           ");
+                	System.out.println("  " + Jugador2 + "  ha ganado estas rondas  "+ contJ2 +"   ");
+                	System.out.println(" __________________________________________________________");
+                	reiniciar = false;// esto es para salir del bucle
+                
+                }
+                
+                else {
+                	
+                	// Para reiniciar el tablero si la respuesta es un si 
+                	Tabla = new String[][] {{"-", "-", "-"}, 
+                							{"-", "-", "-"}, 
+                							{"-", "-", "-"}};
+                	
+                }
             }
-            
-            
-         // Apartado para cambiar el turno de los jugadores
+
+            // Apartado para cambiar el turno de los jugadores
             
             if (TurnoJug.equals(Jugador1)) {
             	
@@ -313,34 +386,6 @@ public class TresEnRaya {
             }
             
             
-            System.out.println(" ________________________________________________");
-			System.out.println("|                                                |");
-            System.out.println("|     Quieres repetir la revancha ???   (s/n)    |");
-            System.out.println("|________________________________________________|");
-            
-            String revancha = teclado.next(); // introducce el usuario si quiere seguir la ronda
-            
-            if (!revancha.equalsIgnoreCase("s")) { 
-            	
-            	// en esta condicion ignora el caso que es la s por si pone la n i nos saldra el mensaje saliendo de los juegos i con los resultados de cada jugador
-            	
-            	System.out.println(" __________________________________________________________");
-    			System.out.println("                                                           ");
-                System.out.println("                    Saliendo del Juego...                  ");
-                System.out.println(" __________________________________________________________");
-                System.out.println("                                                           ");
-                System.out.println("                    Resultado Finales                      ");
-                System.out.println(" __________________________________________________________");
-                System.out.println("                                                           ");
-                System.out.println("  " + Jugador1 + "  ha ganado estas rondas  "+ contJ1 +"   ");
-                System.out.println(" __________________________________________________________");
-                System.out.println("                                                           ");
-                System.out.println("  " + Jugador2 + "  ha ganado estas rondas  "+ contJ2 +"   ");
-                System.out.println(" __________________________________________________________");
-                
-                
-                break; // Sale del bucle i se rompe la condicion
-            }  
 		} // acaba el bucle while de las rondas
 	}
 }
